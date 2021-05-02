@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+<section>
+  <div class="video py-5 bg-light">
+    <div id="video" class="container">
+      <div class=" row ">
+          <div class="col-md-12 ">
+              <div class="card mb-6 box-shadow ">
+                  <div class="card-body ">
+                      <h1>Extra! Extra!</h1>
+                      <p class="content-text__container " > {{video.get_noticia()}} </p>
+                      <div class="d-flex justify-content-between align-items-center ">
+                        <video width="950" height="460" controls ><source src="{{url_for('static', filename='video/'+video.get_videoURL())}}" type="video/mp4"></video>
+                      </div> 
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>   
+</section>
+
+
+
+
+
+{%endblock%}

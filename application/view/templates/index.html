@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block body %}
+      <div class=container>
+        <center><h1 class="jumbotron-heading">Estados</h1></center>
+        {%for categoria in categoria_lista %}
+        <div class="row">
+          <div class="col-lg-7 text-center mt-4">
+              
+                <img src="{{url_for('static', filename=categoria.get_fotoURL())}}" class="">
+              
+              <h2>{{categoria.get_titulo()}}</h2>
+              <p>{{categoria.get_descricao()}}</p>   
+          </div>
+          {%endfor%}
+        </div>
+      <div class="container p-5">
+        <div class="card-group">
+          {% for video in mais_curtidos_lista %}
+          <div class="card text-center">
+            <img src="{{url_for('static', filename=video.get_fotoURL())}}" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">{{video.get_titulo()}}</h5>
+              <p class="card-text">{{video.get_descricao()}}</p>
+              <p class="card-text">{{video.get_qntCurtida()}} curtidas {{video.get_qntVisualizacao()}} Visualizações</p>
+              <p><a class="btn btn-danger" href="{{url_for('video', video_id = video.get_id())}}" role="button">Ir para Noticia</a></p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+              
+{%endblock%}
+
+
+
+        
+
+
+
+
+
+</body>
+</html>
